@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(103, 29, 29);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: beige;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+
+h1 {
+    color: rgb(103, 29, 29);
+}
+
+.resetButton {
+    position: relative;
+    left: inherit;
+    top: inherit;
+    padding: 5px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+}
+
+.resetButton:hover {
+    background-color: rgb(103, 29, 29);
+    color: beige;
+}
+
+.game {
+    display: flex;
+    /* position: relative; */
+    width: 440px;
+    height: 440px;
+    flex-wrap: wrap;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    gap: 5px;
+    justify-content: center;
+}
+
+.box {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    transform: rotateY(180deg);
+    transition: 0.25s;
+}
+
+.box.boxOpen {
+    transform: rotateY(0deg);
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* background: rgb(103, 29, 29); */
+
+    background-image: url(images/closedCard.jpg);
+    background-size: cover;
+    background-position: center;
+
+
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    /* opacity: 0.5; */
+    backface-visibility: hidden;
+}
+
+.boxOpen:after, .boxMatch:after {
+    transform: rotateY(180deg);
+}
